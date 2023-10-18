@@ -45,3 +45,22 @@ export async function signInUser(username: string, password: string) {
     throw new Error('Sign-in failed');
   }
 }
+
+// Fetch the list of suppliers from the API
+export async function fetchSuppliers(authToken: string, page: number = 1) {
+  try {
+    const headers = {
+      Authorization: `Token ${authToken}`,
+    };
+
+    const response = await axiosInstance.get('/api/v1/suppliers/', {
+      headers,
+      params: { page },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error('Failed to fetch suppliers:', error);
+    throw new Error('Failed to fetch suppliers');
+  }
+}
