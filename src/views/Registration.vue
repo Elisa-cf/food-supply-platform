@@ -10,8 +10,8 @@
         <input
           class="bg-grey1 w-10/12 p-2 rounded-md focus:outline-none focus:ring-grey3 focus:ring-2 caret-grey3"
           type="text"
-          placeholder="Email"
-          v-model="email"
+          placeholder="Username"
+          v-model="username"
         />
         <input
           class="bg-grey1 w-10/12 p-2 rounded-md focus:outline-none focus:ring-grey3 focus:ring-2 caret-grey3"
@@ -26,7 +26,7 @@
           {{ errMsg }}
         </p>
         <div class="bg-blue3 w-10/12 p-2 rounded text-center text-white">
-          <button @click="register">SUBMIT</button>
+          <button @click="handleRegistration">SUBMIT</button>
         </div>
 
         <p>
@@ -43,13 +43,27 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { registerNewUser, getAuthToken } from '../utils/api';
 
-const email = ref('');
-const password = ref('');
+const username = ref('');
 const errMsg = ref();
 const router = useRouter();
+const password = ref('');
 
-const register = () => {};
+//calling the functions from api.ts to create the new username, password and token
+const handleRegistration = async () => {
+  try {
+    await registerNewUser(username.value, password.value);
+    const token = await getAuthToken(username.value, password.value);
+    localStorage.setItem('jwtToken', token);
+
+    router.push('/supplierslist');
+    alert('Registration successful!');
+  } catch (error) {
+    console.error('Registration failed:', error);
+    alert('Registration failed. Please try again.');
+  }
+};
 </script>
 
 <style scoped></style>

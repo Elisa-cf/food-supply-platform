@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Registration from '../views/Registration.vue';
+import SuppliersList from '../components/SuppliersList.vue';
 </script>
 
 <template>
   <main>
-    <Registration />
+    <SuppliersList></SuppliersList>
   </main>
 </template>
