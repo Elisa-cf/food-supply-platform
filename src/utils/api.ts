@@ -36,13 +36,17 @@ export async function getAuthToken(
 }
 
 // Sign in a user using username and password and retrieving the token of the user
-export async function signInUser(username: string, password: string) {
+export async function signInUser(
+  username: string,
+  password: string
+): Promise<string> {
   try {
     const authToken = await getAuthToken(username, password);
     console.log('Authentication successful. Token:', authToken);
+    return authToken; // Return the authToken
   } catch (error) {
     console.error('Sign-in failed:', error);
-    throw new Error('Sign-in failed');
+    throw new Error('Sign-in failed');
   }
 }
 

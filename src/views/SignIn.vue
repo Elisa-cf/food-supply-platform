@@ -54,7 +54,10 @@ const logIn = async () => {
 
   try {
     //calling the function from api.ts to sign in whith username and password
-    await signInUser(username.value, password.value);
+    const token = await signInUser(username.value, password.value);
+    // Store the token in sessionStorage
+    sessionStorage.setItem('authToken', token);
+
     isUserLogged = true;
     router.push('/');
     alert('Sign-in successful!');
