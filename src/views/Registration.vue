@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2 class="text-red3">I'm the registration</h2>
     <div class="bg-grey2 h-screen w-screen flex justify-center items-center">
       <section
         class="bg-white flex flex-col justify-center items-center w-11/12 py-10 gap-4 rounded-md sm:w-[500px]"
