@@ -69,6 +69,25 @@ export async function fetchSuppliers(authToken: string, page: number = 1) {
   }
 }
 
+// Fetch the list of quotes from the API
+export async function fetchQuotes(authToken: string, page: number = 1) {
+  try {
+    const headers = {
+      Authorization: `Token ${authToken}`,
+    };
+
+    const response = await axiosInstance.get('/api/v1/quotes/', {
+      headers,
+      params: { page },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error('Failed to fetch suppliers:', error);
+    throw new Error('Failed to fetch suppliers');
+  }
+}
+
 // Fetch details of a specific supplier by ID
 export async function fetchSupplierDetail(
   authToken: string,
