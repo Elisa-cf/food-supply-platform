@@ -41,14 +41,24 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import {} from '../utils/api';
+import { signInUser } from '../utils/api';
 
 const username = ref('');
 const errMsg = ref();
 const router = useRouter();
 const password = ref('');
 
-const singIn = () => {};
+//calling the function from api.ts to sign in whith username and password
+const signIn = async () => {
+  try {
+    await signInUser(username.value, password.value);
+    router.push('/home');
+    alert('Sign-in successful!');
+  } catch (error) {
+    console.error('Sign-in failed:', error);
+    alert('Sign-in failed. Please try again.');
+  }
+};
 </script>
 
 <style scoped></style>

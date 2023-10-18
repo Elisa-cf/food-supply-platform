@@ -34,3 +34,14 @@ export async function getAuthToken(
     throw new Error('Token retrieval failed');
   }
 }
+
+// Sign in a user using username and password and retrieving the token of the user
+export async function signInUser(username: string, password: string) {
+  try {
+    const authToken = await getAuthToken(username, password);
+    console.log('Authentication successful. Token:', authToken);
+  } catch (error) {
+    console.error('Sign-in failed:', error);
+    throw new Error('Sign-in failed');
+  }
+}

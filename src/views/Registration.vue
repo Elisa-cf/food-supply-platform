@@ -56,7 +56,7 @@ const handleRegistration = async () => {
     const token = await getAuthToken(username.value, password.value);
     localStorage.setItem('jwtToken', token);
 
-    router.push('/supplierslist');
+    router.push('/signin');
     alert('Registration successful!');
   } catch (error) {
     console.error('Registration failed:', error);
