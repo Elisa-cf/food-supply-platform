@@ -22,6 +22,15 @@ const router = createRouter({
       name: 'signin',
       component: () => import('../views/SignIn.vue'),
     },
+    {
+      path: '/supplier/:id',
+      name: 'supplier-detail',
+      component: () => import('../components/SupplierDetail.vue'),
+
+      meta: {
+        requiresAuth: true,
+      },
+    },
   ],
 });
 

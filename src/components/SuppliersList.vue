@@ -1,17 +1,29 @@
 <template>
   <div>
-    <ul>
-      <li v-for="supplier in suppliers" :key="supplier.id">
-        <strong>Name:</strong> {{ supplier.name }} |
-        <strong>Description:</strong> {{ supplier.description }}
-      </li>
-    </ul>
-    <button @click="loadMoreSuppliers" v-if="hasMore">Load More</button>
+    <h2>Suppliers List</h2>
+
+    <!-- Display when isLoading is true -->
+    <div v-if="isLoading">Loading suppliers...</div>
+
+    <!-- Display the list of suppliers when not loading and no error -->
+    <div v-else-if="!isLoading">
+      <ul>
+        <li v-for="supplier in suppliers" :key="supplier.id">
+          <strong>Name:</strong> {{ supplier.name }} |
+          <strong>Description:</strong> {{ supplier.description }}
+          <button @click="() => viewSupplierDetail(supplier.id)">
+            View Details
+          </button>
+        </li>
+      </ul>
+      <button @click="loadMoreSuppliers" v-if="hasMore">Load More</button>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import { getAuthToken, fetchSuppliers } from '../utils/api';
 
 interface Supplier {
@@ -28,40 +40,45 @@ interface PaginatedResponse {
 }
 
 const suppliers = ref<Supplier[]>([]);
-let authToken: string | null = null;
-let nextPage = 1;
-let hasMore = true;
 
-// function to fetch the suppliers and fetch the suppliers of the next page if necessary
+const isLoading = ref<boolean>(true);
+const hasMore = ref<boolean>(true);
+let authToken: string | null = null;
+let nextPage: number = 1;
+
+const router = useRouter();
+
 const loadMoreSuppliers = async () => {
   if (!authToken) return;
-
+  isLoading.value = true;
   try {
-    const response = await fetchSuppliers(authToken, nextPage);
+    const response: PaginatedResponse = await fetchSuppliers(
+      authToken,
+      nextPage
+    );
     if (response && response.results) {
-      suppliers.value = suppliers.value.concat(response.results);
+      suppliers.value = [...suppliers.value, ...response.results];
       nextPage++;
-      hasMore = !!response.next;
+      hasMore.value = !!response.next;
     }
+    isLoading.value = false;
   } catch (error) {
     console.error('Failed to fetch suppliers:', error);
+    isLoading.value = false;
   }
 };
 
-onMounted(async () => {
-  try {
-    // Sign in to obtain the authentication token
-    authToken = await getAuthToken('username', 'password');
+const viewSupplierDetail = (id: string) => {
+  router.push(`/supplier/${id}`);
+};
 
-    // Fetch suppliers using the obtained authentication token
-    const response = await fetchSuppliers(authToken);
-    if (response && response.results) {
-      suppliers.value = response.results;
-      nextPage++; // Start with the next page for pagination
-      hasMore = !!response.next;
-    }
-  } catch (error) {
-    console.error('Failed to fetch suppliers:', error);
-  }
+onMounted(async () => {
+  authToken = await getAuthToken('username', 'password');
+  sessionStorage.setItem('authToken', authToken);
+  await loadMoreSuppliers();
 });
 </script>
+
+<style scoped>
+/* Your styles here */
+</style>

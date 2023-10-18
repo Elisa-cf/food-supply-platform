@@ -64,3 +64,27 @@ export async function fetchSuppliers(authToken: string, page: number = 1) {
     throw new Error('Failed to fetch suppliers');
   }
 }
+
+// Fetch details of a specific supplier by ID
+export async function fetchSupplierDetail(
+  authToken: string,
+  supplierId: string
+) {
+  try {
+    const headers = {
+      Authorization: `Token ${authToken}`,
+    };
+
+    const response = await axiosInstance.get(
+      `/api/v1/suppliers/${supplierId}/`,
+      {
+        headers,
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error('Failed to fetch supplier detail:', error);
+    throw new Error('Failed to fetch supplier detail');
+  }
+}
