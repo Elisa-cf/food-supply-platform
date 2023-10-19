@@ -1,42 +1,19 @@
 <template>
   <div>
-    <!-- Display when isLoading is true -->
-    <div v-if="isLoading" class="flex justify-center mt-10">
-      <div class="lds-roller">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
+    <LoadingSpinner :isLoading="isLoading" />
 
-    <!-- Display the list of quotes when not loading and no error -->
     <div
-      v-else-if="!isLoading"
+      v-if="!isLoading"
       class="flex flex-col gap-3 w-11/12 mx-auto max-w-4xl justify-center my-3 text-purple1"
     >
       <ul
         class="grid grid-cols-1 gap-2 xs:grid-cols-2 xs:gap-2 xs:gap-x-4 lg:gap-x-8 items-center"
       >
-        <li
+        <QuotesListItem
           v-for="quote in quotes"
           :key="quote.id"
-          class="bg-blue1 mt-2 px-2 py-4 rounded-md gap-2 sm:px-4 lg:flex lg:p-8 lg:gap-3"
-        >
-          <p class="justify-self-start">
-            <strong>Amount:</strong> {{ quote.amount }}
-          </p>
-          <p class="justify-self-start">
-            <strong>Created:</strong> {{ formatDate(quote.created) }}
-          </p>
-          <p class="justify-self-start">
-            <strong>Title:</strong> {{ quote.title }}
-          </p>
-        </li>
+          :quote="quote"
+        />
       </ul>
       <button @click="loadMoreQuotes" v-if="hasMore">Load More</button>
     </div>
@@ -47,6 +24,9 @@
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { getAuthToken, fetchQuotes } from '../utils/api';
+
+import LoadingSpinner from '../utils/LoadingSpinner.vue';
+import QuotesListItem from '../components/QuotesListItem.vue';
 
 interface Quote {
   id: string;
@@ -88,21 +68,9 @@ const loadMoreQuotes = async () => {
   }
 };
 
-const formatDate = (isoDate: string): string => {
-  const date = new Date(isoDate);
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const year = date.getFullYear().toString().slice(-2);
-  const hours = date.getHours().toString().padStart(2, '0');
-  const minutes = date.getMinutes().toString().padStart(2, '0');
-  return `${day}/${month}/${year} ${hours}:${minutes}`;
-};
-
 onMounted(async () => {
   authToken = await getAuthToken('username', 'password');
   sessionStorage.setItem('authToken', authToken);
   await loadMoreQuotes();
 });
 </script>
-
-<style scoped></style>
