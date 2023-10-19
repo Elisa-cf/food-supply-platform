@@ -2,8 +2,19 @@
   <div>
     <h2>Quotes List</h2>
 
-    <!-- Display when isLoading is true -->
-    <div v-if="isLoading">Loading quotes...</div>
+        <!-- Display when isLoading is true -->
+    <div v-if="isLoading" class="flex justify-center mt-10">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
 
     <!-- Display the list of quotes when not loading and no error -->
     <div v-else-if="!isLoading">

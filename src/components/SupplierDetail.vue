@@ -1,7 +1,19 @@
 <template>
   <div>
     <h1>Supplier Detail</h1>
-    <div v-if="isLoading">Loading...</div>
+    <!-- Display when isLoading is true -->
+    <div v-if="isLoading" class="flex justify-center mt-10">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <div v-else-if="errMsg">{{ errMsg }}</div>
     <div v-else>
       <strong>ID:</strong> {{ supplier?.id }}<br />

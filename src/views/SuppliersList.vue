@@ -1,9 +1,18 @@
 <template>
   <div>
-    <h2>Suppliers List</h2>
-
     <!-- Display when isLoading is true -->
-    <div v-if="isLoading">Loading suppliers...</div>
+    <div v-if="isLoading" class="flex justify-center mt-10">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
 
     <!-- Display the list of suppliers when not loading and no error -->
     <div v-else-if="!isLoading">
