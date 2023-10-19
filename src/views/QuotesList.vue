@@ -1,5 +1,5 @@
 <template>
-  <div class="flex py-20">
+  <div class="flex justify-center py-20">
     <LoadingSpinner :isLoading="isLoading" />
 
     <div

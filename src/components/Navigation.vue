@@ -11,7 +11,6 @@
 
       <!-- Conditionally show logout for mobile and desktop based on isLoggedIn -->
       <button
-        v-if="isLoggedIn"
         class="flex items-center gap-1 sm:gap-2 font-bold sm:hidden"
         @click="handleSignOut"
       >
@@ -21,7 +20,7 @@
         </div>
       </button>
 
-      <div class="items-center sm:flex hidden gap-2" v-if="isLoggedIn">
+      <div class="items-center sm:flex hidden gap-2">
         <RouterLink to="/suppliers">
           <button class="bg-blue5 p-2 rounded text-center text-white">
             All Suppliers
@@ -49,15 +48,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import LogOut from '../assets/images/log-out.svg';
 import OpplyLogo from '../assets/images/opply-logo.webp';
 
 const router = useRouter();
-
-// Reactive computed property for the authentication state
-const isLoggedIn = computed(() => !!sessionStorage.getItem('authToken'));
 
 const handleSignOut = () => {
   sessionStorage.removeItem('authToken');

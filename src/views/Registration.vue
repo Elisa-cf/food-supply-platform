@@ -1,10 +1,12 @@
 <template>
   <div>
-    <div class="bg-grey2 h-screen w-screen flex justify-center items-center">
+    <div
+      class="bg-blue1 h-screen w-screen z-50 fixed flex justify-center items-center"
+    >
       <section
-        class="bg-white flex flex-col justify-center items-center w-11/12 py-10 gap-4 rounded-md sm:w-[500px]"
+        class="bg-purple2 flex flex-col justify-center items-center w-11/12 py-10 gap-4 rounded-md sm:w-[500px]"
       >
-        <h1 class="font-bold text-xl text-grey3">Create an account</h1>
+        <h1 class="font-bold text-xl text-white">Create an account</h1>
 
         <input
           class="bg-grey1 w-10/12 p-2 rounded-md focus:outline-none focus:ring-grey3 focus:ring-2 caret-grey3"
@@ -18,19 +20,16 @@
           placeholder="Password"
           v-model="password"
         />
-        <p
-          class="bg-red1 border border-red4 text-red3 w-10/12 p-1.5"
-          v-if="errMsg"
+
+        <div
+          class="bg-blue3 w-10/12 p-2 rounded text-center text-purple1 bg-blue1"
         >
-          {{ errMsg }}
-        </p>
-        <div class="bg-blue3 w-10/12 p-2 rounded text-center text-white">
           <button @click="handleRegistration">SUBMIT</button>
         </div>
 
         <p>
-          <span class="text-grey3 font-bold">Already have an account? </span>
-          <RouterLink to="/signin" class="text-blue3 font-bold"
+          <span class="text-white font-bold">Already have an account? </span>
+          <RouterLink to="/signin" class="text-white font-bold"
             >Log in</RouterLink
           >
         </p>
@@ -45,7 +44,6 @@ import { useRouter } from 'vue-router';
 import { registerNewUser, getAuthToken } from '../utils/api';
 
 const username = ref('');
-const errMsg = ref();
 const router = useRouter();
 const password = ref('');
 

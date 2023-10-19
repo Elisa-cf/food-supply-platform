@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-purple2 h-screen w-screen flex flex-col justify-center items-center"
+    class="bg-purple2 z-50 fixed h-screen w-screen flex flex-col justify-center items-center"
   >
     <section
       class="bg-blue1 flex flex-col justify-center items-center w-11/12 py-10 gap-4 rounded-md sm:w-[500px]"
