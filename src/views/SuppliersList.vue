@@ -15,12 +15,28 @@
     </div>
 
     <!-- Display the list of suppliers when not loading and no error -->
-    <div v-else-if="!isLoading">
-      <ul>
-        <li v-for="supplier in suppliers" :key="supplier.id">
-          <strong>Name:</strong> {{ supplier.name }} |
-          <strong>Description:</strong> {{ supplier.description }}
-          <button @click="() => viewSupplierDetail(supplier.id)">
+    <div
+      v-else-if="!isLoading"
+      class="flex flex-col gap-3 w-11/12 mx-auto max-w-4xl justify-center my-3 text-purple2"
+    >
+      <ul
+        class="grid grid-cols-1 gap-2 xs:grid-cols-2 xs:gap-2 xs:gap-x-4 lg:gap-x-8 items-center"
+      >
+        <li
+          v-for="supplier in suppliers"
+          :key="supplier.id"
+          class="bg-blue1 mt-2 px-2 py-4 rounded-md gap-2 sm:px-4 lg:flex lg:p-8 lg:gap-3"
+        >
+          <p class="justify-self-start">
+            <strong>Name:</strong> {{ supplier.name }}
+          </p>
+          <p class="justify-self-start">
+            <strong>Description:</strong> {{ supplier.description }}
+          </p>
+          <button
+            @click="() => viewSupplierDetail(supplier.id)"
+            class="mt-2 bg-yellow1 text-purple1 font-bold py-1 px-4 rounded-full text-sm lg:flex-end lg:px-5 lg:py-3"
+          >
             View Details
           </button>
         </li>

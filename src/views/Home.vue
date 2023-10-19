@@ -8,7 +8,7 @@
       />
       <RouterLink to="/suppliers">
         <button
-          class="mt-2 bg-yellow1 text-purple1 font-bold py-2 px-4 rounded-full button-transition"
+          class="mt-2 bg-yellow1 text-purple1 font-bold py-2 px-4 rounded-full button-transition md:py-3 md:px-10 md:text-xl"
         >
           Suppliers
         </button>
@@ -22,7 +22,7 @@
       />
       <RouterLink to="/quotes">
         <button
-          class="mt-2 bg-yellow1 text-purple1 font-bold py-2 px-4 rounded-full button-transition"
+          class="mt-2 bg-yellow1 text-purple1 font-bold py-2 px-4 rounded-full button-transition md:py-3 md:px-10 md:text-xl"
         >
           Quotes
         </button>

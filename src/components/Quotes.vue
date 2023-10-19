@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h2>Quotes List</h2>
-
-        <!-- Display when isLoading is true -->
+    <!-- Display when isLoading is true -->
     <div v-if="isLoading" class="flex justify-center mt-10">
       <div class="lds-roller">
         <div></div>
@@ -17,13 +15,27 @@
     </div>
 
     <!-- Display the list of quotes when not loading and no error -->
-    <div v-else-if="!isLoading">
-      <ul>
-        <li v-for="quote in quotes" :key="quote.id">
-          <strong>Amount:</strong> {{ quote.amount }} |
-          <strong>Created:</strong> {{ formatDate(quote.created) }}
-
-          <strong>Title:</strong> {{ quote.title }}
+    <div
+      v-else-if="!isLoading"
+      class="flex flex-col gap-3 w-11/12 mx-auto max-w-4xl justify-center my-3 text-purple1"
+    >
+      <ul
+        class="grid grid-cols-1 gap-2 xs:grid-cols-2 xs:gap-2 xs:gap-x-4 lg:gap-x-8 items-center"
+      >
+        <li
+          v-for="quote in quotes"
+          :key="quote.id"
+          class="bg-blue1 mt-2 px-2 py-4 rounded-md gap-2 sm:px-4 lg:flex lg:p-8 lg:gap-3"
+        >
+          <p class="justify-self-start">
+            <strong>Amount:</strong> {{ quote.amount }}
+          </p>
+          <p class="justify-self-start">
+            <strong>Created:</strong> {{ formatDate(quote.created) }}
+          </p>
+          <p class="justify-self-start">
+            <strong>Title:</strong> {{ quote.title }}
+          </p>
         </li>
       </ul>
       <button @click="loadMoreQuotes" v-if="hasMore">Load More</button>
