@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="flex py-20">
     <LoadingSpinner :isLoading="isLoading" />
 
     <div
       v-if="!isLoading"
-      class="flex flex-col gap-3 w-11/12 mx-auto max-w-4xl justify-center my-3 text-purple2"
+      class="flex flex-col gap-3 w-11/12 mx-auto max-w-4xl justify-center text-purple2"
     >
       <ul
         class="grid grid-cols-1 gap-2 xs:grid-cols-2 xs:gap-2 xs:gap-x-4 lg:gap-x-8 items-center"

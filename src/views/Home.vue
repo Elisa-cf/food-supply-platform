@@ -1,5 +1,7 @@
 <template>
-  <main class="flex flex-col items-center justify-center sm:flex-row">
+  <main
+    class="pt-20 md:pt-0 md:h-screen flex flex-col items-center justify-center sm:flex-row"
+  >
     <div class="text-center sliding-left relative">
       <img
         src="../assets/images/farmer-market.webp"
