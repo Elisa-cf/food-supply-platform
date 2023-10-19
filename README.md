@@ -1,46 +1,84 @@
-# opply
+# Opply: Buying and selling for was never that easy 🤝🥕
 
-This template should help get you started developing with Vue 3 in Vite.
+Opply is an innovative end to end supply platform that is revolutionizing the way consumer goods brands connect with suppliers in the food & beverage industry.
 
-## Recommended IDE Setup
+To visit the website: 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Table of Contents
 
-## Type Support for `.vue` Imports in TS
+- [Main Features](#main-features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Main features
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+- Registration and login form using authentication with TOKEN.
+- Home where you can select if you want to see all the suppliers or all the quotes.
+- Suppliers page where you can see a list of available suppliers.
+- Suppliers detail page.
+- Quotes page where you can see a list of the created quotes.
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## Getting Started
 
-## Customize configuration
+### Prerequisites
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Before you begin, ensure you have the following installed:
 
-## Project Setup
+- Node.js (v14 or later)
+- npm (Node Package Manager)
 
-```sh
-npm install
-```
+### Installation
 
-### Compile and Hot-Reload for Development
+1. Clone the repository:
 
-```sh
-npm run dev
-```
+   ```bash
+   git clone https://github.com/yourusername/your-repo.git
+   cd your-repo
 
-### Type-Check, Compile and Minify for Production
+2. Install dependencies:
 
-```sh
-npm run build
-```
+  ```sh
+  npm install
+  ```
+## Usage
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+1. Start the development server:
 
-```sh
-npm run test:unit
-```
+  ```sh
+  npm run dev
+  ```
+2. Access the app in your browser at http://localhost:3000.
+3. Sign up or log in to start managing your Opply's account.
+
+4. Compile and Minify for Production
+
+  ```sh
+  npm run build
+  ```
+
+## Technologies Used: 
+
+1. [Vue.js 3](https://vuejs.org/): Front-end framework
+2. Axios: used for handling the HTTP request
+3. Tailwind CSS: Styling and responsive design
+4. [Vite](https://vitejs.dev/): Build tool and development server
+5. [Vue Router](https://router.vuejs.org/): Client-side routing
+
+## Script Setup and Computed Properties: 
+
+This project utilizes Vue 3's script setup syntax for component logic and Computed Properties for efficient data manipulation.
+
+## Contributing:
+
+Contributions are welcome! If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and test thoroughly.
+4. Commit your changes and push to your forked repository.
+5. Create a pull request to the main repository.
+
