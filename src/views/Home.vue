@@ -4,7 +4,7 @@
       <img
         src="../assets/images/farmer-market.webp"
         alt="happy seller guy"
-        class="w-auto max-w-sm"
+        class="max-h-[450px] w-auto max-w-sm"
       />
       <RouterLink to="/suppliers">
         <button
