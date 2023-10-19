@@ -9,40 +9,28 @@
         </div>
       </RouterLink>
 
-      <!-- Conditionally show logout for mobile and desktop based on isLoggedIn -->
-      <button
-        class="flex items-center gap-1 sm:gap-2 font-bold sm:hidden"
-        @click="handleSignOut"
-      >
-        <p class="text-grey4">Log out</p>
-        <div class="w-4">
-          <img :src="LogOut" alt="log out logo" />
-        </div>
-      </button>
-
       <div class="items-center sm:flex hidden gap-2">
         <RouterLink to="/suppliers">
-          <button class="bg-blue5 p-2 rounded text-center text-white">
+          <button class="p-2 rounded text-center text-blue1 text-lg font-bold">
             All Suppliers
           </button>
         </RouterLink>
 
         <RouterLink to="/quotes">
-          <button class="bg-blue5 p-2 rounded text-center text-white">
+          <button class="p-2 rounded text-center text-blue1 text-lg font-bold">
             My Quotes
           </button>
         </RouterLink>
-
-        <button
-          class="flex items-center gap-1 sm:gap-2 font-bold"
-          @click="handleSignOut"
-        >
-          <p class="text-grey4">Log out</p>
-          <div class="w-4">
-            <img :src="LogOut" alt="log out logo" />
-          </div>
-        </button>
       </div>
+      <button
+        class="flex items-center z-50 gap-1 sm:gap-2 font-bold"
+        @click="handleSignOut"
+      >
+        <p class="text-blue1 md:text-lg">Log out</p>
+        <div class="w-4">
+          <img :src="LogOut" alt="log out logo" class="text-yellow1" />
+        </div>
+      </button>
     </nav>
   </header>
 </template>
