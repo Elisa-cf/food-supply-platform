@@ -1,6 +1,6 @@
 <template>
   <main
-    class="h-screen flex flex-col gap-3 items-center justify-center sm:flex-row"
+    class="overflow-x-hidden h-screen flex flex-col gap-3 items-center justify-center sm:flex-row"
   >
     <div class="text-center sliding-left relative">
       <img
