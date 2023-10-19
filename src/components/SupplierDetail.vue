@@ -35,8 +35,8 @@
       />
       <img
         v-else
-        src="../assets/images/default.jpg"
-        alt="Default"
+        src="../assets/images/monkey.jpg"
+        alt="happy monkey"
         class="w-auto max-w-sm"
       />
       <div>
