@@ -1,4 +1,4 @@
-# Opply: Buying and selling has never been easier 🤝🥕
+# Opply: Buying and selling food has never been easier 🤝🥕
 
 Opply is an innovative end to end supply platform that is revolutionizing the way consumer goods brands connect with suppliers in the food & beverage industry.
 
