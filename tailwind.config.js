@@ -14,6 +14,7 @@ module.exports = {
       purple1: '#7A34FF',
       purple2: '#6A3BEA',
       blue1: '#3BDDDD',
+      yellow1: '#F4B804',
     },
     extend: {},
   },
