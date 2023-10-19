@@ -55,6 +55,7 @@ import { useRoute } from 'vue-router';
 import { fetchSupplierDetail } from '../utils/api';
 import LoadingSpinner from '../utils/LoadingSpinner.vue';
 
+// Check if an authentication token exists in session storage
 const authToken: string | null = sessionStorage.getItem('authToken');
 if (!authToken) {
   console.error('No authentication token found in sessionStorage.');
@@ -65,17 +66,16 @@ interface Supplier {
   name: string;
   description: string;
 }
-const supplier = ref<Supplier | null>(null);
 
+const supplier = ref<Supplier | null>(null);
 const route = useRoute();
 const supplierId = route.params.id as string;
-
 const isLoading = ref(true);
 const errMsg = ref<string | null>(null);
 
+// Use the onMounted hook to initiate data retrieval when the component is mounted
 onMounted(async () => {
   if (!authToken) return;
-
   try {
     const response = await fetchSupplierDetail(authToken, supplierId);
     supplier.value = response;

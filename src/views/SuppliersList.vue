@@ -50,6 +50,7 @@ let nextPage: number = 1;
 
 const router = useRouter();
 
+// Define a function to load more suppliers from the API
 const loadMoreSuppliers = async () => {
   if (!authToken) return;
   isLoading.value = true;
@@ -70,10 +71,12 @@ const loadMoreSuppliers = async () => {
   }
 };
 
+// Define a function to navigate to the supplier detail page
 const viewSupplierDetail = (id: string) => {
   router.push(`/supplier/${id}`);
 };
 
+// Use the onMounted hook to authenticate the user and load initial suppliers
 onMounted(async () => {
   authToken = await getAuthToken('username', 'password');
   sessionStorage.setItem('authToken', authToken);

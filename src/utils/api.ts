@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// Create an instance of Axios with a base URL pointing to the API server
 const axiosInstance = axios.create({
   baseURL: 'https://february-21.herokuapp.com',
 });

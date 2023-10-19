@@ -51,6 +51,7 @@ let nextPage: number = 1;
 
 const router = useRouter();
 
+// Define a function to load more quotes from the API
 const loadMoreQuotes = async () => {
   if (!authToken) return;
   isLoading.value = true;
@@ -68,6 +69,7 @@ const loadMoreQuotes = async () => {
   }
 };
 
+// Use the onMounted hook to authenticate the user and load initial quotes
 onMounted(async () => {
   authToken = await getAuthToken('username', 'password');
   sessionStorage.setItem('authToken', authToken);

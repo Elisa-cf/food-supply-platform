@@ -18,6 +18,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
+// Extract 'supplier' and 'viewSupplierDetail' props from the parent component using defineProps
 const { supplier, viewSupplierDetail } = defineProps([
   'supplier',
   'viewSupplierDetail',

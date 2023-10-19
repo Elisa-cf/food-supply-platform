@@ -53,7 +53,7 @@ const router = useRouter();
 const password = ref('');
 const errMsg = ref();
 
-//calling the functions from api.ts to create the new username, password and token
+// Function to handle user registration and token retrieval
 const handleRegistration = async () => {
   try {
     await registerNewUser(username.value, password.value);

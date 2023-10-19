@@ -17,6 +17,7 @@ import { defineProps } from 'vue';
 
 const { quote } = defineProps(['quote']);
 
+// Formats a given ISO date string into a human-readable date and time format.
 const formatDate = (isoDate: string): string => {
   const date = new Date(isoDate);
   const day = date.getDate().toString().padStart(2, '0');

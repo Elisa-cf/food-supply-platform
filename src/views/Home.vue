@@ -36,8 +36,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
+// After a second, remove the 'hidden' class to trigger the transitions
 onMounted(() => {
-  // After a second, remove the 'hidden' class to trigger the transitions
   setTimeout(() => {
     const elements = document.querySelectorAll(
       '.button-transition'

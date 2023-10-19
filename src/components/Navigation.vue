@@ -42,6 +42,7 @@ import OpplyLogo from '../assets/images/opply-logo.webp';
 
 const router = useRouter();
 
+//removing the Token from the local storage in order to be automatically log out of the app
 const handleSignOut = () => {
   sessionStorage.removeItem('authToken');
   router.push('/signin');
