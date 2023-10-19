@@ -1,12 +1,12 @@
 <template>
   <main
-    class="pt-20 md:pt-0 md:h-screen flex flex-col items-center justify-center sm:flex-row"
+    class="h-screen flex flex-col gap-3 items-center justify-center sm:flex-row"
   >
     <div class="text-center sliding-left relative">
       <img
-        src="../assets/images/farmer-market.webp"
+        src="../assets/images/farmer-market.png"
         alt="happy seller guy"
-        class="max-h-[450px] w-auto max-w-sm"
+        class="max-h-[35vh] w-auto md:max-h-[50vh]"
       />
       <RouterLink to="/suppliers">
         <button
@@ -16,11 +16,11 @@
         </button>
       </RouterLink>
     </div>
-    <div class="text-center mt-4 md:flex-col sliding-right relative">
+    <div class="text-center md:flex-col sliding-right relative">
       <img
         src="../assets/images/farmer-market-2.png"
         alt="happy seller girl"
-        class="w-auto max-w-sm"
+        class="w-auto max-h-[35vh] md:max-h-[50vh]"
       />
       <RouterLink to="/quotes">
         <button
