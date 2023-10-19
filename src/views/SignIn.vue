@@ -19,7 +19,7 @@
         v-model="password"
       />
       <p
-        class="bg-red1 border border-red4 text-red3 w-10/12 p-1.5"
+        class="bg-red border border-red2 rounded-md text-red1 w-10/12 p-1.5"
         v-if="errMsg"
       >
         {{ errMsg }}
@@ -60,8 +60,10 @@ const logIn = async () => {
 
     isUserLogged = true;
     router.push('/');
-  } catch (error) {
+  } catch (error: any) {
     console.error('Sign-in failed:', error);
+
+    errMsg.value = 'Username or password wrong';
   }
 };
 </script>
