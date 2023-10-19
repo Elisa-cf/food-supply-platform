@@ -1,19 +1,8 @@
 <template>
   <div class="flex justify-center items-center h-screen">
     <!-- Display when isLoading is true -->
-    <div v-if="isLoading" class="flex justify-center mt-10">
-      <div class="lds-roller">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-    <div v-else>
+    <LoadingSpinner :isLoading="isLoading" />
+    <div v-if="!isLoading">
       <img
         v-if="supplier?.name.includes('Potatoes')"
         src="../assets/images/patata.jpg"
@@ -39,6 +28,12 @@
         class="w-auto max-w-sm"
       />
       <img
+        v-else-if="supplier?.name.includes('Apples')"
+        src="../assets/images/manzana.webp"
+        alt="Apples"
+        class="w-auto max-w-sm"
+      />
+      <img
         v-else
         src="../assets/images/default.jpg"
         alt="Default"
@@ -58,6 +53,7 @@
 import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { fetchSupplierDetail } from '../utils/api';
+import LoadingSpinner from '../utils/LoadingSpinner.vue';
 
 const authToken: string | null = sessionStorage.getItem('authToken');
 if (!authToken) {
