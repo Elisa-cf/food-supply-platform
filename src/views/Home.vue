@@ -3,7 +3,7 @@
     <div class="text-center sliding-left relative">
       <img
         src="../assets/images/farmer-market.webp"
-        alt="arrow right"
+        alt="happy seller guy"
         class="w-auto max-w-sm"
       />
       <RouterLink to="/suppliers">
@@ -17,7 +17,7 @@
     <div class="text-center mt-4 md:flex-col sliding-right relative">
       <img
         src="../assets/images/farmer-market-2.png"
-        alt="arrow right"
+        alt="happy seller girl"
         class="w-auto max-w-sm"
       />
       <RouterLink to="/quotes">
