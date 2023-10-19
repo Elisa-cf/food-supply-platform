@@ -2,7 +2,7 @@
 
 Opply is an innovative end to end supply platform that is revolutionizing the way consumer goods brands connect with suppliers in the food & beverage industry.
 
-To visit the website: https://supply-food-platform.netlify.app/signin
+To visit the website: https://supply-food-platform.netlify.app/
 
 ## Table of Contents
 
