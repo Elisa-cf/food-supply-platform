@@ -23,6 +23,15 @@ const router = createRouter({
       component: () => import('../views/SignIn.vue'),
     },
     {
+      path: '/suppliers',
+      name: 'suppliers',
+      component: () => import('../views/SuppliersList.vue'),
+
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
       path: '/supplier/:id',
       name: 'supplier-detail',
       component: () => import('../components/SupplierDetail.vue'),
@@ -41,6 +50,17 @@ const router = createRouter({
       },
     },
   ],
+});
+
+//check which routes/pages requires authentication
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = !!sessionStorage.getItem('authToken'); // This checks if the authToken exists
+
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    next('/signin'); // If the user is not authenticated, redirect to sign in
+  } else {
+    next(); // Otherwise, proceed
+  }
 });
 
 export default router;

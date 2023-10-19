@@ -1,5 +1,7 @@
-<script setup lang="ts"></script>
+<template><Navigation /> <RouterView /></template>
 
-<template><RouterView /></template>
+<script setup lang="ts">
+import Navigation from './components/Navigation.vue';
+</script>
 
 <style></style>

@@ -43,7 +43,7 @@ export async function signInUser(
   try {
     const authToken = await getAuthToken(username, password);
     console.log('Authentication successful. Token:', authToken);
-    return authToken; // Return the authToken
+    return authToken;
   } catch (error) {
     console.error('Sign-in failed:', error);
     throw new Error('Sign-in failed');

@@ -82,6 +82,4 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped>
-/* Your styles here */
-</style>
+<style scoped></style>

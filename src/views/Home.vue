@@ -1,9 +1,8 @@
-<script setup lang="ts">
-import SuppliersList from '../components/SuppliersList.vue';
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <main>
-    <SuppliersList></SuppliersList>
+    <RouterLink to="/suppliers"> <button>Suppliers</button></RouterLink>
+    <RouterLink to="/quotes"> <button>Quotes</button></RouterLink>
   </main>
 </template>
