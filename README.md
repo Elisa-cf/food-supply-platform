@@ -1,6 +1,6 @@
-# Opply: Buying and selling food has never been easier 🤝🥕
+# Food Supply Platform: Buying and selling food has never been easier 🤝🥕
 
-Opply is an innovative end to end supply platform that is revolutionizing the way consumer goods brands connect with suppliers in the food & beverage industry.
+Who are we? An innovative end to end supply platform that is revolutionizing the way consumer goods brands connect with suppliers in the food & beverage industry.
 
 To visit the website: https://supply-food-platform.netlify.app/
 
@@ -52,7 +52,7 @@ Before you begin, ensure you have the following installed:
   npm run dev
   ```
 2. Access the app in your browser at http://localhost:3000.
-3. Sign up or log in to start managing your Opply's account.
+3. Sign up or log in to start managing your personal account.
 
 4. Compile and Minify for Production
 
