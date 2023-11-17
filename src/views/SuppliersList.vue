@@ -41,7 +41,7 @@ interface PaginatedResponse {
   results: Supplier[];
 }
 
-const suppliers = ref<Supplier[]>([]);
+const suppliers = ref<Supplier[]>([]); // suppliers is a reactive reference to an array of Supplier objects.
 
 const isLoading = ref<boolean>(true);
 const hasMore = ref<boolean>(true);
@@ -60,6 +60,7 @@ const loadMoreSuppliers = async () => {
       nextPage
     );
     if (response && response.results) {
+      //spread operator is used here to create new arrays and to update the suppliers.value with the merged data from both suppliers.value and response.results.
       suppliers.value = [...suppliers.value, ...response.results];
       nextPage++;
       hasMore.value = !!response.next;
@@ -71,7 +72,7 @@ const loadMoreSuppliers = async () => {
   }
 };
 
-// Define a function to navigate to the supplier detail page
+// Define a function to navigate to the supplier detail page using the id parameter
 const viewSupplierDetail = (id: string) => {
   router.push(`/supplier/${id}`);
 };

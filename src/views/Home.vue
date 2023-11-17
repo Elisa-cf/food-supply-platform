@@ -57,7 +57,9 @@ onMounted(() => {
 
 @keyframes slide-in-left {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(
+      -100%
+    ); /*At the beginning (0% of the animation), the element is positioned far to the left, translated by -100% of its own width.  This means it's entirely outside the viewport on the left side.*/
   }
   100% {
     transform: translateX(0);
@@ -69,7 +71,9 @@ onMounted(() => {
     transform: translateX(100%);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(
+      0
+    ); /*At the end (100% of the animation), the element is fully visible, positioned with no horizontal translation (translateX(0)). It's fully inside the viewport.*/
   }
 }
 
@@ -84,7 +88,7 @@ onMounted(() => {
 
 /* Apply the sliding animations to images */
 .sliding-left {
-  animation: slide-in-left 1s ease-in-out forwards;
+  animation: slide-in-left 1s ease-in-out forwards; /*it will slide in from the left side with a 1-second animation, starting slowly, accelerating, and stopping in its final position while remaining fully visible.*/
 }
 
 .sliding-right {
