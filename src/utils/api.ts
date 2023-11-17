@@ -5,7 +5,7 @@ const axiosInstance = axios.create({
   baseURL: 'https://february-21.herokuapp.com',
 });
 
-//add new user to the api endpoint with only username and password
+//add new user to the api endpoint with only username and password. Don't need to specify the type Promise since it's mainly an action (registering a user) rather than returning specific data.
 export async function registerNewUser(username: string, password: string) {
   try {
     const response = await axiosInstance.post('/api/v1/users/', {
@@ -54,6 +54,7 @@ export async function signInUser(
 // Fetch the list of suppliers from the API
 export async function fetchSuppliers(authToken: string, page: number = 1) {
   try {
+    //authentication is required to access the data from the API.
     const headers = {
       Authorization: `Token ${authToken}`,
     };
@@ -95,6 +96,7 @@ export async function fetchSupplierDetail(
   supplierId: string
 ) {
   try {
+    //authentication is required to access the data from the API.
     const headers = {
       Authorization: `Token ${authToken}`,
     };

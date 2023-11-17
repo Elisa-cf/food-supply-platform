@@ -50,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { fetchSupplierDetail } from '../utils/api';
 import LoadingSpinner from '../utils/LoadingSpinner.vue';
@@ -67,7 +67,7 @@ interface Supplier {
   description: string;
 }
 
-const supplier = ref<Supplier | null>(null);
+const supplier = ref<Supplier | null>(null); // supplier is a reactive reference that can hold an object of type Supplier or a null value.
 const route = useRoute();
 const supplierId = route.params.id as string;
 const isLoading = ref(true);

@@ -54,7 +54,7 @@ const router = createRouter({
 
 //check which routes/pages requires authentication
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = !!sessionStorage.getItem('authToken'); // This checks if the authToken exists
+  const isAuthenticated = !!sessionStorage.getItem('authToken'); // This checks if the authToken exists.The !! is a double negation, and it's used to convert a value into a boolean
 
   if (to.meta.requiresAuth && !isAuthenticated) {
     next('/signin'); // If the user is not authenticated, redirect to sign in
