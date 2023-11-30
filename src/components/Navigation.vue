@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav
-      class="bg-purple1 fixed flex w-full items-center justify-between px-2 py-2 border-b-10"
+      class="bg-purple1 fixed flex w-full items-center justify-between px-2 py-2 border-b-12"
     >
       <RouterLink to="/">
         <div class="w-24 md:w-32 lg:w-40">
